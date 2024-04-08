@@ -1,23 +1,21 @@
-#4-1
+"""정수 N이 입력되면 00시 00분 00초부터 N시 59분 59초까지의 모든 시각 중에서 3이 하나라도
+포함되는 모든 경우의 수를 구하는 프로그램을 작성하시오.
+입력 예시 
+5
+출력 예시
+11475"""
+N = int(input())
+count = 0
 
-move_type = ['L','R','U','D']
-x,y = 1, 1
-n = int(input())
-plans = input().split()
+for i in range(N+1):
+    for j in range(60):
+        for k in range(60):
+            if '3' in str(i)+str(j)+str(k):
+                count+=1
 
-dx = [0,0,-1,1]
-dy = [-1,1,0,0]
-
-for plan in plans:
-    for i in range(len(move_type)):
-        if plan == move_type[i]:
-            nx = x + dx[i]
-            ny = y + dy[i]
-        
-    if 1<=nx<=n and 1<=ny<=n:
-        x,y = nx, ny
-print(x, y)
+print(count)
 
 
 
 
+# 시,분,초가 나오면 60씩 끊어서 생각하자
